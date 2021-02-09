@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:DavBuzzer"
+             xmlns:ui="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material"
+             x:Class="DavBuzzer.Pages.AdminPage"
+             Title="Admin Page">
+    <ContentPage.Content>
+        <local:GradientColorStack Style="{StaticResource GardientLayout}"
+                                  StartColor="#dc65c7"
+                                  EndColor="#0e095e">
+            <StackLayout>
+                <Grid BackgroundColor="Transparent">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="80"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Button Text="-"
+                            Style="{StaticResource AdminPageButton}"
+                            Grid.Row="0"
+                            Grid.Column="0"
+                            HorizontalOptions="End"
+                            Command="{Binding RoundDownCommand}"/>
+                    <Label Text="{Binding RoundLabel}"
+                           Grid.Row="0"
+                           Grid.Column="1"
+                           HorizontalOptions="Center"   
+                           HorizontalTextAlignment="Center"
+                           Style="{StaticResource AdminPageLabel}"/>
+                    <Button Text="+"
+                            Style="{StaticResource AdminPageButton}"
+                            Grid.Row="0"
+                            Grid.Column="2"
+                            HorizontalOptions="Start"
+                            Command="{Binding RoundUpCommand}"/>
+                </Grid>
+
+                <ListView ItemsSource="{Binding Players}"
+                          HasUnevenRows="True" 
+                          Grid.Row="0"
+                          SeparatorVisibility="Default"
+                          SeparatorColor="LightGray">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+
+                                <Grid Padding="10,0,0,0" ColumnSpacing="0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="50"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="40"/>
+                                        <ColumnDefinition Width="30"/>
+                                        <ColumnDefinition Width="40"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <Frame BackgroundColor="{Binding SelectedColor}"
+                                           IsClippedToBounds="True"
+                                           CornerRadius="25"
+                                           BorderColor="White"
+                                           VerticalOptions="CenterAndExpand"
+                                           HorizontalOptions="CenterAndExpand"
+                                           Grid.Column="0"/>
+
+                                    <Label Text="{Binding Name}"
+                                           Style="{StaticResource AdminPageLabel}"
+                                           Grid.Column="1"/>
+
+                                    <Button Text="-"
+                                            Command="{Binding DownCommand}"
+                                            CommandParameter="{Binding .}"
+                                            Style="{StaticResource AdminPageButton}"
+                                            Grid.Column="2"/>
+
+                                    <Label Text="{Binding Score}"
+                                           Style="{StaticResource AdminPageLabel}"
+                                           Grid.Column="3"
+                                           HorizontalOptions="CenterAndExpand"/>
+
+                                    <Button Text="+" 
+                                            Style="{StaticResource AdminPageButton}"
+                                            Command="{Binding UpCommand}"
+                                            CommandParameter="{Binding .}"
+                                            Grid.Column="4"/>
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
+                <StackLayout Orientation="Horizontal"
+                             VerticalOptions="End"
+                             HorizontalOptions="Center">
+                    <Image>
+                        <Image.Source>
+                            <FontImageSource FontFamily="{StaticResource MaterialFontFamily}"
+                                             Glyph="&#xe90f;"
+                                             Color="Yellow"
+                                             Size="30"/>
+                        </Image.Source>
+                    </Image>
+                    <ui:MaterialButton Text="Envoyer Indice"
+                                       HorizontalOptions="Center"
+                                       ButtonType="Outlined"
+                                       BorderColor="Yellow"
+                                       Command="{Binding SendIndiceCommand}"                
+                                       TextColor="Yellow"/>
+                    <Image>
+                        <Image.Source>
+                            <FontImageSource FontFamily="{StaticResource MaterialFontFamily}"
+                                             Glyph="&#xe90f;"
+                                             Color="Yellow"
+                                             Size="30"/>
+                        </Image.Source>
+                    </Image>
+
+                </StackLayout>
+
+            </StackLayout>
+        </local:GradientColorStack>
+    </ContentPage.Content>
+</ContentPage>

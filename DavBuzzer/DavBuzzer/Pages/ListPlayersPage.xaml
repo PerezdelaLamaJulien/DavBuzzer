@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:local="clr-namespace:DavBuzzer"
+             xmlns:ui="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material"
+             mc:Ignorable="d"
+             x:Class="DavBuzzer.Pages.ListPlayersPage">
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="FillAndExpand" >
+            <local:GradientColorStack Style="{StaticResource GardientLayout}"
+                                      StartColor="#dc65c7"
+                                      EndColor="#0e095e">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="50"/>
+                    </Grid.RowDefinitions>
+
+                    <StackLayout Orientation="Horizontal" 
+                                 BackgroundColor="{StaticResource Material.Color.Primary}"
+                                 Grid.Row="0">
+                        <Button Command="{Binding BackButtonCommand}"
+                                BackgroundColor="Transparent"
+                                WidthRequest="50">
+                            <Button.ImageSource>
+                                <FontImageSource FontFamily="{StaticResource MaterialFontFamily}"
+                                                 Glyph="&#xe5c4;"
+                                                 Size="44"                                         
+                                                 Color="White" />
+                            </Button.ImageSource>
+                        </Button>
+                        <Label Text="{Binding TitlePage}"
+                               TextColor="White"
+                               FontAttributes="Bold"
+                               FontSize="Large"
+                               VerticalOptions="CenterAndExpand"/>
+                    </StackLayout>
+                    <ListView ItemsSource="{Binding Players}"
+                                  HasUnevenRows="True"
+                                  Grid.Row="1"
+                                  SeparatorColor="LightGray">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <Grid Padding="10,5,0,5" 
+                                              ColumnSpacing="0">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="50"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+
+                                        <Frame BackgroundColor="{Binding SelectedColor}"
+                                                   IsClippedToBounds="True"
+                                                   CornerRadius="25"
+                                                   BorderColor="White"
+                                                   VerticalOptions="CenterAndExpand"
+                                                   HorizontalOptions="CenterAndExpand"
+                                                   Grid.Column="0"/>
+
+                                        <Label Text="{Binding Name}"
+                                                   Style="{StaticResource AdminPageLabel}"
+                                                   Grid.Column="1"
+                                                   VerticalOptions="Center"/>
+                                    </Grid>
+                                </ViewCell>
+
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                    <ui:MaterialButton Text="Lancer la partie"
+                                           Command="{Binding GoNextCommand}"
+                                           Style="{StaticResource ButtonLogin}"
+                                           Grid.Row="2"/>
+                </Grid>
+            </local:GradientColorStack>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

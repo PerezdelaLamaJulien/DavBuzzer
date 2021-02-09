@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:DavBuzzer"
+             xmlns:ui="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material"
+             x:Class="DavBuzzer.Pages.ListSoundPage"
+             Title="Banque de Sons">
+    <ContentPage.Content>
+        <local:GradientColorStack Style="{StaticResource GardientLayout}"
+                                          StartColor="#dc65c7"
+                                          EndColor="#0e095e">
+            <Grid RowSpacing="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="50"/>
+                </Grid.RowDefinitions>
+
+                <ListView ItemsSource="{Binding Sounds}"
+                          HasUnevenRows="True" 
+                          Grid.Row="0" >
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <ui:MaterialCard CornerRadius="6"
+                                                 Elevation="2"
+                                                 IsClickable="True"
+                                                 ClickCommand="{Binding ClickCardCommand}" 
+                                                 ClickCommandParameter="{Binding Name}" 
+                                                 Padding="0"
+                                                 BackgroundColor="Transparent">
+
+                                    <StackLayout Padding="15,5"
+                                                 Orientation="Horizontal">
+                                        <Label Text="{Binding Name}"
+                                               VerticalOptions="CenterAndExpand"
+                                               TextColor="White"/>
+                                        <CheckBox HorizontalOptions="EndAndExpand"
+                                                  IsChecked="{Binding IsSelected}"
+                                                  Color="White" 
+                                                  IsEnabled="False"/>
+                                    </StackLayout>
+                                </ui:MaterialCard>
+                            </ViewCell>
+
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
+                <ui:MaterialButton Grid.Row="1" 
+                                   Text="Confirmer" 
+                                   Command="{Binding SetSoundCommand}" 
+                                   Style="{StaticResource ButtonLogin}"/>
+            </Grid>
+        </local:GradientColorStack>
+    </ContentPage.Content>
+</ContentPage>

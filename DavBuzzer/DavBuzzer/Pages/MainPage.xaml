@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:DavBuzzer"
+             xmlns:ui="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material"
+             Title="DavBuzz"
+             x:Class="DavBuzzer.Pages.MainPage">
+
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="FillAndExpand">
+            <local:GradientColorStack Style="{StaticResource GardientLayout}"
+                                      StartColor="#dc65c7"
+                                      EndColor="#0e095e">
+                <StackLayout Padding="15,30">
+                    <Image Source="logo_davBuzz.png"
+                           HorizontalOptions="Center"
+                           HeightRequest="150" 
+                           Margin="0"/>
+
+                    <Label Text="DavBuzz"
+                           TextColor="White"
+                           FontSize="Large"
+                           FontAttributes="Bold" 
+                           HorizontalOptions="Center" 
+                           Margin="0"/>
+
+                    <ui:MaterialTextField Placeholder="Identifiant Partie"
+                                          Style="{StaticResource TextFieldLogin}"
+                                          Text="{Binding RoomId}"/>
+
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="2*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <ui:MaterialTextField Placeholder="Nom du Joueur"
+                                          Style="{StaticResource TextFieldLogin}"
+                                          Text="{Binding PlayerName}"
+                                          Grid.Column="0"
+                                          HorizontalOptions="FillAndExpand"/>
+
+                        <StackLayout Orientation="Horizontal" Grid.Column="1" 
+                                     VerticalOptions="FillAndExpand">
+                            
+                            <Button Command="{Binding BackwardColorCommand}"
+                                    VerticalOptions="Center"
+                                    WidthRequest="30"
+                                    BackgroundColor="Transparent">
+                                <Button.ImageSource>
+                                    <FontImageSource FontFamily="{StaticResource MaterialFontFamily}"
+                                                     Glyph="&#xe5cb;"
+                                                     Size="44"                                         
+                                                     Color="White" />
+                                </Button.ImageSource>
+                            </Button>
+
+                            <Frame BackgroundColor="{Binding SelectedColor}"
+                                   IsClippedToBounds="True"
+                                   CornerRadius="25"
+                                   BorderColor="White"
+                                   VerticalOptions="CenterAndExpand"/>
+
+                            <Button Command="{Binding ForwardColorCommand}"
+                                    BackgroundColor="Transparent"
+                                    VerticalOptions="Center"
+                                    WidthRequest="30">
+                                <Button.ImageSource>
+                                    <FontImageSource FontFamily="{StaticResource MaterialFontFamily}"
+                                                     Glyph="&#xe5cc;"
+                                                     Size="44"                                         
+                                                     Color="White" />
+                                </Button.ImageSource>
+                            </Button>
+                        </StackLayout>
+                    </Grid>
+                </StackLayout>
+
+                <StackLayout VerticalOptions="EndAndExpand" 
+                             Spacing="20">
+
+                    <ui:MaterialButton Text="Créer une partie" 
+                                       Command="{Binding CreateRoomCommand}"
+                                       Style="{StaticResource ButtonLogin}"/>
+
+                    <ui:MaterialButton Text="Rejoindre une partie" 
+                                       Command="{Binding JoinRoomCommand}"
+                                       Style="{StaticResource ButtonLogin}"/>
+                </StackLayout>
+            </local:GradientColorStack>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
+
+    

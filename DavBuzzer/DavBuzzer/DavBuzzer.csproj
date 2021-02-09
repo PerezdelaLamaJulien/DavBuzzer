@@ -1,0 +1,89 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DebugType>pdbonly</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Audio\Bip_Bip.mp3" />
+    <None Remove="Audio\Boite_Meuh.mp3" />
+    <None Remove="Audio\Bourvil.mp3" />
+    <None Remove="Audio\Bugs_Bunny.mp3" />
+    <None Remove="Audio\Caisse_Enregistreuse.mp3" />
+    <None Remove="Audio\Cartoon_Boom.mp3" />
+    <None Remove="Audio\Cartoon_Rire.mp3" />
+    <None Remove="Audio\Ca_Farte.mp3" />
+    <None Remove="Audio\Chat.mp3" />
+    <None Remove="Audio\Cri_Wilhelm.mp3" />
+    <None Remove="Audio\DeFunes.mp3" />
+    <None Remove="Audio\Gong.mp3" />
+    <None Remove="Audio\Homer.mp3" />
+    <None Remove="Audio\Jouet.mp3" />
+    <None Remove="Audio\Jouet2.mp3" />
+    <None Remove="Audio\Klaxon.mp3" />
+    <None Remove="Audio\Klaxon2.mp3" />
+    <None Remove="Audio\Mario.mp3" />
+    <None Remove="Audio\PacMan.mp3" />
+    <None Remove="Audio\Panoramix.mp3" />
+    <None Remove="Audio\Question_Pour_Un_Champion.mp3" />
+    <None Remove="Audio\Windows.mp3" />
+    <None Remove="Audio\Wizz_Messenger.mp3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Audio\Bip_Bip.mp3" />
+    <EmbeddedResource Include="Audio\Boite_Meuh.mp3" />
+    <EmbeddedResource Include="Audio\Bourvil.mp3" />
+    <EmbeddedResource Include="Audio\Bugs_Bunny.mp3" />
+    <EmbeddedResource Include="Audio\Caisse_Enregistreuse.mp3" />
+    <EmbeddedResource Include="Audio\Cartoon_Boom.mp3" />
+    <EmbeddedResource Include="Audio\Cartoon_Rire.mp3" />
+    <EmbeddedResource Include="Audio\Ca_Farte.mp3" />
+    <EmbeddedResource Include="Audio\Chat.mp3" />
+    <EmbeddedResource Include="Audio\Cri_Wilhelm.mp3" />
+    <EmbeddedResource Include="Audio\DeFunes.mp3" />
+    <EmbeddedResource Include="Audio\Gong.mp3" />
+    <EmbeddedResource Include="Audio\Homer.mp3" />
+    <EmbeddedResource Include="Audio\Jouet.mp3" />
+    <EmbeddedResource Include="Audio\Jouet2.mp3" />
+    <EmbeddedResource Include="Audio\Klaxon.mp3" />
+    <EmbeddedResource Include="Audio\Klaxon2.mp3" />
+    <EmbeddedResource Include="Audio\Mario.mp3" />
+    <EmbeddedResource Include="Audio\PacMan.mp3" />
+    <EmbeddedResource Include="Audio\Panoramix.mp3" />
+    <EmbeddedResource Include="Audio\Question_Pour_Un_Champion.mp3" />
+    <EmbeddedResource Include="Audio\Windows.mp3" />
+    <EmbeddedResource Include="Audio\Wizz_Messenger.mp3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="DLToolkit.Forms.Controls.FlowListView" Version="2.0.11" />
+    <PackageReference Include="ExpandableView" Version="1.0.10" />
+    <PackageReference Include="FirebaseDatabase.net" Version="4.0.4" />
+    <PackageReference Include="Rg.Plugins.Popup" Version="2.0.0.2" />
+    <PackageReference Include="Xam.Plugin.SimpleAudioPlayer" Version="1.4.0" />
+    <PackageReference Include="Xamarin.Forms" Version="4.5.0.617" />
+    <PackageReference Include="XF.Material" Version="1.6.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Pages\AdminPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\BuzzPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\ListSoundPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Converters\" />
+  </ItemGroup>
+</Project>

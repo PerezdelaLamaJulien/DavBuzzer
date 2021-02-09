@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DavBuzzer.App"
+             xmlns:mtrltypo1="clr-namespace:XF.Material.Forms.Resources.Typography;assembly=XF.Material"
+             xmlns:material="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material"
+             xmlns:mtrl1="clr-namespace:XF.Material.Forms.Resources;assembly=XF.Material"
+             xmlns:local="clr-namespace:DavBuzzer">
+    <Application.Resources>
+
+        <Color x:Key="DavGreen">#14B595</Color>
+
+        <OnPlatform x:Key="FontFamily.RobotoRegular"
+            x:TypeArguments="x:String"
+            Android="Fonts/Roboto-Regular.ttf#Roboto-Regular"
+            iOS="Roboto-Regular" />
+        <OnPlatform x:Key="FontFamily.RobotoMedium"
+            x:TypeArguments="x:String"
+            Android="Fonts/Roboto-Medium.ttf#Roboto-Medium"
+            iOS="Roboto-Medium" />
+        <OnPlatform x:Key="MaterialFontFamily" x:TypeArguments="x:String">
+            <On Platform="iOS" Value="Material Icons" />
+            <On Platform="Android" Value="MaterialIcons-Regular.ttf#Material Design Icons" />
+            <On Platform="UWP" Value="MaterialIcons-Regular.ttf#Material Design Icons" />
+        </OnPlatform>
+
+        <mtrltypo1:MaterialFontConfiguration x:Key="Material.Font"
+            Body1="{StaticResource FontFamily.RobotoRegular}"
+            Body2="{StaticResource FontFamily.RobotoRegular}"
+            Button="{StaticResource FontFamily.RobotoMedium}"
+            Caption="{StaticResource FontFamily.RobotoRegular}"
+            H1="{StaticResource FontFamily.RobotoRegular}"
+            H2="{StaticResource FontFamily.RobotoRegular}"
+            H3="{StaticResource FontFamily.RobotoRegular}"
+            H4="{StaticResource FontFamily.RobotoRegular}"
+            H5="{StaticResource FontFamily.RobotoRegular}"
+            H6="{StaticResource FontFamily.RobotoMedium}"
+            Overline="{StaticResource FontFamily.RobotoRegular}"
+            Subtitle1="{StaticResource FontFamily.RobotoRegular}"
+            Subtitle2="{StaticResource FontFamily.RobotoMedium}" />
+        
+        <mtrl1:MaterialColorConfiguration x:Key="Material.Color"
+            Background="#EAEAEA"
+            Error="#B00020"
+            Primary="#952281"
+            PrimaryVariant="#651758"
+            Secondary="White"
+            SecondaryVariant="#2196F3"
+            Surface="#FFFFFF"
+            OnBackground="#000000"
+            OnError="#FFFFFF"
+            OnPrimary="#FFFFFF"
+            OnSecondary="#ACACAC"
+            OnSurface="#000000"/>
+        
+        <mtrl1:MaterialConfiguration x:Key="Material.Configuration"
+            ColorConfiguration="{StaticResource Material.Color}"
+            FontConfiguration="{StaticResource Material.Font}" />
+
+        <Style TargetType="material:MaterialTextField" x:Key="TextFieldLogin">
+            <Setter Property="HorizontalOptions" Value="CenterAndExpand"/>
+            <Setter Property="VerticalOptions" Value="CenterAndExpand"/>
+            <Setter Property="BackgroundColor" Value="Transparent"/>
+            <Setter Property="TextColor" Value="White"/>
+            <Setter Property="PlaceholderColor" Value="White"/>
+            <Setter Property="UnderlineColor" Value="White"/>
+            <Setter Property="FloatingPlaceholderColor" Value="White"/>
+            <Setter Property="TintColor" Value="White"/>
+            <Setter Property="AlwaysShowUnderline" Value="True"/>
+            <Setter Property="InputType" Value="Text"/>
+        </Style>
+
+        <Style TargetType="material:MaterialButton" x:Key="ButtonLogin">
+            <Setter Property="TextColor" Value="White"/>
+            <Setter Property="BorderColor" Value="White"/>
+            <Setter Property="HorizontalOptions" Value="CenterAndExpand"/>
+            <Setter Property="VerticalOptions" Value="CenterAndExpand"/>
+            <Setter Property="ButtonType" Value="Outlined"/>
+        </Style>
+
+        <Style TargetType="local:GradientColorStack" x:Key="GardientLayout">
+            <Setter Property="Orientation" Value="Vertical"/>
+            <Setter Property="VerticalOptions" Value="FillAndExpand"/>
+            <Setter Property="Padding" Value="0"/>
+        </Style>
+
+        <Style TargetType="Button" x:Key="AdminPageButton">
+            <Setter Property="TextColor" Value="White"/>
+            <Setter Property="BackgroundColor" Value="Transparent"/>
+            <Setter Property="FontSize" Value="30"/>
+        </Style>
+
+        <Style TargetType="Label" x:Key="AdminPageLabel">
+            <Setter Property="TextColor" Value="White"/>
+            <Setter Property="VerticalOptions" Value="CenterAndExpand"/>
+            <Setter Property="FontSize" Value="20"/>
+        </Style>
+    </Application.Resources>
+</Application>

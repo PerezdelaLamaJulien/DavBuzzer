@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:local="clr-namespace:DavBuzzer"
+             xmlns:behaviors="clr-namespace:DavBuzzer.Behaviors"
+             xmlns:converters="clr-namespace:DavBuzzer.Converters"
+             xmlns:ui="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material"
+             mc:Ignorable="d"
+             Title="DavBuzz"
+             x:Class="DavBuzzer.Pages.BuzzPage">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Order="Primary" 
+                     Command="{Binding SettingCommand}">
+            <ToolbarItem.IconImageSource>
+                <FontImageSource FontFamily="{StaticResource MaterialFontFamily}"
+                                 Glyph="&#xe8b8;"
+                                 Color="White"
+                                 Size="30"/>
+            </ToolbarItem.IconImageSource>
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.Content>
+        <local:GradientColorStack Style="{StaticResource GardientLayout}"
+                                  StartColor="#dc65c7"
+                                  EndColor="#0e095e">
+
+            <ui:MaterialButton HorizontalOptions="Center"
+                                   VerticalOptions="CenterAndExpand"  
+                                   HeightRequest="300"
+                                   WidthRequest="300"
+                                   BorderRadius="150"
+                                   BorderColor="White"
+                                   TextColor="White"
+                                   ButtonType="Outlined">
+                <Button.Behaviors>
+                    <behaviors:ViewTappedButtonBehavior Command="{Binding SoundCommand}"/>
+                </Button.Behaviors>
+                <Button.ImageSource>
+                    <FontImageSource FontFamily="{StaticResource MaterialFontFamily}"
+                                     Glyph="&#xe3a1;"
+                                     Color="White"
+                                     Size="60"/>
+                </Button.ImageSource>
+            </ui:MaterialButton>
+
+            <Frame BorderColor="Gold" 
+                   BackgroundColor="Transparent" 
+                   VerticalOptions="End" 
+                   Padding="5,2,5,10" 
+                   IsVisible="{Binding IsNewHint}">
+                <StackLayout Padding="0">
+                    <Label HorizontalOptions="Center"
+                           Text="Nouveau Indice"
+                           TextColor="Gold" 
+                           FontSize="18"/>
+
+                    <Label HorizontalOptions="Center"
+                           Text="{Binding HintType}"
+                           TextColor="Gold"
+                           FontSize="16"/>
+
+                    <Label HorizontalOptions="Center"
+                           Text="{Binding HintValue}"
+                           TextColor="Gold"
+                           FontSize="16"/>
+                </StackLayout>
+
+            </Frame>
+        </local:GradientColorStack>
+    </ContentPage.Content>
+</ContentPage>
